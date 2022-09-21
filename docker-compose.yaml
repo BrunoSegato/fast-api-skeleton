@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql/schemas:/docker-entrypoint-initdb.d
+    networks:
+      - zoo_networks
+
+networks:
+  zoo_networks:
+    name: zoo_networks
+    driver: bridge
