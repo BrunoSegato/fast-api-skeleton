@@ -3,3 +3,6 @@ install:
 	pip install -U setuptools
 	pip install pipenv
 	pipenv install --system --deploy --ignore-pipfile
+
+run-local:
+	uvicorn main:app --reload
